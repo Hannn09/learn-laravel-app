@@ -1,0 +1,109 @@
+html{
+    scroll-behavior: smooth;
+}
+/* Navbar */
+.nav-link{
+    margin-right: 30px;
+}
+
+.nav-link:hover::after{
+    content: '';
+    display: block;
+    border-bottom: 3px solid #F50057;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 5px;
+    margin-bottom: -8px;
+}
+
+/* Opening */
+.opening{
+    margin-top: 90px;
+}
+.opening h3{
+    font-size: 40px;
+    font-weight: bold;
+    color: #F50057;
+    margin-top: 30px;
+}
+.opening p{
+    font-size: 17px;
+    color: #ACACAC;
+}
+
+/* Description */
+.description h3{
+    font-size: 35px;
+    margin-top: 170px;
+}
+.description p{
+    font-size: 17px;
+    color: #ACACAC;
+}
+.description img{
+    margin-top: 60px;
+}
+
+/* Recommended */
+.recommended h3{
+    font-weight: bold;
+}
+.parent {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Top Games */
+.top h3{
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+/* Info */
+.info{
+    background-image: url(../../img/z.jpeg) ;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.info card{
+    margin-top: 70px;
+}
+.info h3{
+    font-weight: bold;
+    font-size: 50px;
+}
+.info p{
+    font-size: 20px;
+    color: #ACACAC;
+}
+.info h5{
+    font-weight: bold;
+}
+
+/* tombol */
+.tombol{
+    border-radius: 35px;
+    background-color: #F50057;
+    border-color: #F50057;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+/* About */
+
+/* Blog */
+.blog h3{
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 45px;
+}
+
+
+/* Services */
+.service h3{
+    margin-top: 40px;
+    font-weight: bold;
+}
