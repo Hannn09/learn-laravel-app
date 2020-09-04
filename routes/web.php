@@ -13,14 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('about', function(){
-    return view('about');
-});
+Route::get('/', 'PagesController@Home');
+Route::get('/about', 'PagesController@about');
+Route::get('/service','PagesController@service');
 
-Route::get('service', function(){
-    return view('service');
-});
+Route::get('/mahasiswa', 'MahasiswaController@index');
