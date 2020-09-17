@@ -27,7 +27,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('students.create');
     }
 
     /**
@@ -38,8 +38,19 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'nama' => 'required',
+            'nisn' => 'required|size:10',
+            'email' => 'required',
+            'jurusan' => 'required',
+            
+        ]);
+
+        Student::create($request->all());
+        return redirect('/mahasiswa')->with('status', 'Data Added Successfully!');
     }
+
 
     /**
      * Display the specified resource.
@@ -60,7 +71,8 @@ class MahasiswaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Student::find($id);
+        return view('students.edit', compact('student'));
     }
 
     /**
@@ -70,9 +82,25 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Student $student)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'nisn' => 'required|size:10',
+            'email' => 'required',
+            'jurusan' => 'required',
+            
+        ]);
+
+        Student::where('id', $student->id)
+            ->update([
+                'nama' => $request->nama,
+                'nisn' => $request->nisn,
+                'email' => $request->email,
+                'jurusan' => $request->jurusan
+            ]);
+
+            return redirect('/mahasiswa')->with('status', 'Data Edited Successfully!');
     }
 
     /**
@@ -83,6 +111,8 @@ class MahasiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        Student::find($id)->delete();
+        return redirect('/mahasiswa')->with('status', 'Data Deleted Successfully!');
     }
 }

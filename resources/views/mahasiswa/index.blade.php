@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
 
 
 </head>
+
 <body>
     <!-- start navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -40,12 +42,21 @@
         </div>
     </nav>
     <!-- end navbar -->
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-10">
-                <h1 class="mt-3">Daftar Siswa</h1>
 
+    <div class="container">
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+        <div class="row">
+            <div class="col-12 d-flex">
+                <h1 class="mt-2">Daftar Siswa</h1>
+                <div class="ml-auto mt-4">
+                    <a href="/students/create" class="btn btn-primary "><i class="mr-2 fas fa-plus"></i>Add Data</a>
+                </div> 
+            </div>
+            <div class="col-12">
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
@@ -66,13 +77,17 @@
                             <td>{{ $std->email }}</td>
                             <td>{{ $std->jurusan }}</td>
                             <td>
-                                <a href="" class="badge badge-success">Edit</a>
-                                <a href="" class="badge badge-danger">Delete</a>
+                                <a href="students/{{ $std->id }}/edit" class="btn btn-success"><i class="fas fa-pencil-alt"></i></a> |
+                                <form action="students/{{ $std->id }}" method="post" class="d-inline"> 
+                                    @method('delete')
+                                    @csrf
+                                    <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
-                </table>        
+                </table>
             </div>
         </div>
     </div>
@@ -85,7 +100,7 @@
 
 
 
-     <!-- Font Awesome JS -->
+    <!-- Font Awesome JS -->
     <script type="text/javascript" src="{{ asset('bootstrap/js/fontawesome.min.js')}}"></script>
     <script type="text/javascript" src="{{ asset('bootstrap/js/all.min.js')}}"></script>
     <script type="text/javascript" src="{{ asset('bootstrap/js/all.js')}}"></script>

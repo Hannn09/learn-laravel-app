@@ -19,3 +19,9 @@ Route::get('/about', 'PagesController@about');
 Route::get('/service','PagesController@service');
 
 Route::get('/mahasiswa', 'MahasiswaController@index');
+
+Route::get('/students/create', 'MahasiswaController@create');
+Route::post('/students', 'MahasiswaController@store');
+Route::delete('/students/{std}', 'MahasiswaController@destroy');
+Route::get('/students/{std}/edit', 'MahasiswaController@edit');
+Route::patch('/students/{student}', 'MahasiswaController@update');
