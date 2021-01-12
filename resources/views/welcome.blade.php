@@ -36,6 +36,7 @@
                     <a class="nav-item nav-link" href="{{ url('service') }}">Service</a>
                     <a class="nav-item nav-link" href="#Contact">Contact</a>
                     <a class="nav-item nav-link" href="{{ url('mahasiswa') }}">Students</a>
+                    <a class="nav-item nav-link" href="">API</a>
                     <a class="nav-item btn btn-danger tombol" href="#">Join Us</a>
                 </div>
             </div>
